@@ -2,6 +2,7 @@ package view
 
 import (
 	"bytes"
+	"image/color"
 	"image/png"
 	"strconv"
 
@@ -46,7 +47,7 @@ func (pv *PricesView) Build() fyne.CanvasObject {
 	pv.plot = pv.makePlot()
 	return container.NewBorder(
 		container.NewBorder(nil, nil, nil, refreshButton, container.NewCenter(mkPriceDate)),
-		nil,
+		container.NewCenter(canvas.NewText("fuente: omie.es", &color.RGBA{100, 78, 21, 255})),
 		nil,
 		nil,
 		pv.plot,
